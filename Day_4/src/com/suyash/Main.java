@@ -31,7 +31,8 @@ public class Main {
 
         int x = 0;
 //        x = x + 5;
-        x = x & 3;
+        x += 5;
+
         int y = 0;
 //        y = y + 1;
         System.out.println("This is y: "+ x);
