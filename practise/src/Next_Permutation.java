@@ -40,18 +40,19 @@ public class Next_Permutation {
             }
         }
         if(idx == -1) reverse(arr, 0, n-1);
-
-        for(int i = n-1; i>idx; i--)
-        {
-            if(arr[i] > arr[idx])
+        else {
+            for(int i = n-1; i>idx; i--)
             {
-                idx2 = i;
-                break;
+                if(arr[i] > arr[idx])
+                {
+                    idx2 = i;
+                    break;
+                }
             }
-        }
-        swap(arr, idx, idx2);
+            swap(arr, idx, idx2);
 
-        reverse(arr, idx+1, n-1);
+            reverse(arr, idx+1, n-1);
+        }
 
     }
 }
