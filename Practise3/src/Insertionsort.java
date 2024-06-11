@@ -1,6 +1,6 @@
 public class Insertionsort {
     public static void main(String[] args) {
-        int[] arr = {3, 5, 1, 6, 10};
+        int[] arr = {132, 23, 134, 542, 124};
         sort(arr);
         for(int i : arr)
         {
@@ -20,7 +20,7 @@ public class Insertionsort {
                     arr[j-1] = temp;
 
                 }
-                else break;
+//                else break;
             }
         }
     }
