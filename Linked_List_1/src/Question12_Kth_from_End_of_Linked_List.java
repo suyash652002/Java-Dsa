@@ -3,17 +3,17 @@ public class Question12_Kth_from_End_of_Linked_List {
 //        1->2->3->4->5->6->7->8->9, k = 2
         int[] arr = {1, 2, 3, 4, 5};
         int k = 1;
-        Node head = convert(arr);
+        ListNode head = convert(arr);
 //        print(head);
         int ans = getKthFromLast(head, k);
         System.out.println(ans);
     }
 
-    static int getKthFromLast(Node head, int k) {
+    static int getKthFromLast(ListNode head, int k) {
         // Your code here
         if(head == null) return -1;
-        Node slow = head;
-        Node fast = head;
+        ListNode slow = head;
+        ListNode fast = head;
         for(int i = 0; i<k; i++)
         {
             if(fast == null) return -1;
@@ -28,20 +28,20 @@ public class Question12_Kth_from_End_of_Linked_List {
 
         return slow.next.data;
     }
-    public static Node convert(int[] arr)
+    public static ListNode convert(int[] arr)
     {
         if(arr.length == 0) return null;
-        Node head = new Node(arr[0]);
-        Node mover = head;
+        ListNode head = new ListNode(arr[0]);
+        ListNode mover = head;
         for(int i = 1; i<arr.length; i++)
         {
-            Node temp = new Node(arr[i]);
+            ListNode temp = new ListNode(arr[i]);
             mover.next = temp;
             mover = temp;
         }
         return head;
     }
-    public static void print(Node head)
+    public static void print(ListNode head)
     {
         System.out.println("Linked list");
         while(head!=null)

@@ -1,12 +1,12 @@
-public class Node {
+public class ListNode {
     int data;
-    Node next;
+    ListNode next;
 
-    Node(int data){
+    ListNode(int data){
         this.data = data;
         this.next = null;
     }
-    Node(int data, Node next)
+    ListNode(int data, ListNode next)
     {
         this.data = data;
         this.next = next;

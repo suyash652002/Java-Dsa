@@ -1,17 +1,17 @@
 public class Array_to_LL {
-    public static Node convert(int[] arr)
+    public static ListNode convert(int[] arr)
     {
-        Node head = new Node(arr[0]);
-        Node mover = head;
+        ListNode head = new ListNode(arr[0]);
+        ListNode mover = head;
         for(int i = 1; i<arr.length; i++)
         {
-            Node temp = new Node(arr[i]);
+            ListNode temp = new ListNode(arr[i]);
             mover.next = temp;
             mover = temp;
         }
         return head;
     }
-    public static void traverseLL(Node head)
+    public static void traverseLL(ListNode head)
     {
         System.out.println("Linked list");
         while(head!=null)
@@ -21,7 +21,7 @@ public class Array_to_LL {
         }
         System.out.print("null");
     }
-    public static int length_of_ll(Node head)
+    public static int length_of_ll(ListNode head)
     {
         int count = 0;
         while(head!=null)
@@ -31,9 +31,9 @@ public class Array_to_LL {
         }
         return count;
     }
-    public static boolean Search(Node head, int key)
+    public static boolean Search(ListNode head, int key)
     {
-        Node temp = head;
+        ListNode temp = head;
         while(temp!=null)
         {
             if(temp.data == key) return true;
@@ -43,7 +43,7 @@ public class Array_to_LL {
     }
     public static void main(String[] args) {
         int[] arr = {1, 2, 3, 4, 5};
-        Node head = convert(arr);
+        ListNode head = convert(arr);
         traverseLL(head);
         System.out.println();
         System.out.println("Length of LL : " + length_of_ll(head));

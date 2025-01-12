@@ -1,18 +1,18 @@
 public class Question16_Sort_List {
     public static void main(String[] args) {
         int[] arr = {-1,5,3,4,0};
-        Node head = convert(arr);
+        ListNode head = convert(arr);
         sort(head);
         print(head);
     }
-    public static Node findMiddle(Node head)
+    public static ListNode findMiddle(ListNode head)
     {
         if(head == null || head.next == null)
         {
             return head;
         }
-        Node slow = head;
-        Node fast = head.next;
+        ListNode slow = head;
+        ListNode fast = head.next;
         while(fast != null && fast.next != null)
         {
             fast = fast.next.next;
@@ -20,25 +20,25 @@ public class Question16_Sort_List {
         }
         return slow;
     }
-    public static Node sort(Node head)
+    public static ListNode sort(ListNode head)
     {
         if(head == null || head.next == null)
         {
             return head;
         }
-        Node middle = findMiddle(head);
-        Node right = middle.next;
+        ListNode middle = findMiddle(head);
+        ListNode right = middle.next;
         middle.next = null;
-        Node left = head;
+        ListNode left = head;
         left = sort(left);
         right = sort(right);
 
         return merge(left, right);
     }
-    public static Node merge(Node list1, Node list2)
+    public static ListNode merge(ListNode list1, ListNode list2)
     {
-        Node dummy = new Node(0);
-        Node temp = dummy;
+        ListNode dummy = new ListNode(0);
+        ListNode temp = dummy;
         while(list1!= null && list2!=null)
         {
             if(list1.data <= list2.data)
@@ -63,20 +63,20 @@ public class Question16_Sort_List {
         }
         return dummy.next;
     }
-    public static Node convert(int[] arr)
+    public static ListNode convert(int[] arr)
     {
         if(arr.length == 0) return null;
-        Node head = new Node(arr[0]);
-        Node mover = head;
+        ListNode head = new ListNode(arr[0]);
+        ListNode mover = head;
         for(int i = 1; i<arr.length; i++)
         {
-            Node temp = new Node(arr[i]);
+            ListNode temp = new ListNode(arr[i]);
             mover.next = temp;
             mover = temp;
         }
         return head;
     }
-    public static void print(Node head)
+    public static void print(ListNode head)
     {
         System.out.println("Linked list");
         while(head!=null)

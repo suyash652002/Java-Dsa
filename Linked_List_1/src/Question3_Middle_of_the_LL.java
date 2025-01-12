@@ -2,17 +2,17 @@ public class Question3_Middle_of_the_LL {
     public static void main(String[] args) {
         int[] arr = {1, 2, 3, 4, 5};
         int[] arr2 = {1, 2, 3, 4, 5, 6};
-        Node head = convert(arr);
+        ListNode head = convert(arr);
         print(head);
         System.out.println();
-        Node middle = middle(head);
+        ListNode middle = middle(head);
         print(middle);
     }
     // Optimised solution
-    public static Node middle(Node head)
+    public static ListNode middle(ListNode head)
     {
-        Node fast = head;
-        Node slow = head;
+        ListNode fast = head;
+        ListNode slow = head;
         while(fast != null && fast.next != null)
         {
             slow = slow.next;
@@ -43,20 +43,20 @@ public class Question3_Middle_of_the_LL {
 //        }
 //        return head;
 //    }
-    public static Node convert(int[] arr)
+    public static ListNode convert(int[] arr)
     {
         if(arr.length == 0) return null;
-        Node head = new Node(arr[0]);
-        Node mover = head;
+        ListNode head = new ListNode(arr[0]);
+        ListNode mover = head;
         for(int i = 1; i<arr.length; i++)
         {
-            Node temp = new Node(arr[i]);
+            ListNode temp = new ListNode(arr[i]);
             mover.next = temp;
             mover = temp;
         }
         return head;
     }
-    public static void print(Node head)
+    public static void print(ListNode head)
     {
         System.out.println("Linked list");
         while(head!=null)

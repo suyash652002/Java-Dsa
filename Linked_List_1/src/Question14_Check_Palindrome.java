@@ -1,23 +1,23 @@
 public class Question14_Check_Palindrome {
     public static void main(String[] args) {
         int[] arr = {1,1,2,1};
-        Node head = convert(arr);
+        ListNode head = convert(arr);
 //        print(head);
 //        Node ans = reverseList(head);
         System.out.println(check(head));
     }
-    public static boolean check(Node head)
+    public static boolean check(ListNode head)
     {
-        Node slow = head;
-        Node fast = head;
+        ListNode slow = head;
+        ListNode fast = head;
         while(fast!=null && fast.next!=null)
         {
             slow = slow.next;
             fast = fast.next.next;
         }
-        Node newHead = reverseList(slow);
-        Node first = head;
-        Node second = newHead;
+        ListNode newHead = reverseList(slow);
+        ListNode first = head;
+        ListNode second = newHead;
         while(second!=null)
         {
             if(first.data!=second.data)
@@ -31,32 +31,32 @@ public class Question14_Check_Palindrome {
         reverseList(newHead);
         return true;
     }
-    public static Node reverseList(Node head) {
-        Node curr = head;
-        Node prevNode = null;
+    public static ListNode reverseList(ListNode head) {
+        ListNode curr = head;
+        ListNode prevNode = null;
         while(curr!=null)
         {
-            Node nextNode = curr.next;
+            ListNode nextNode = curr.next;
             curr.next = prevNode;
             prevNode = curr;
             curr = nextNode;
         }
         return prevNode;
     }
-    public static Node convert(int[] arr)
+    public static ListNode convert(int[] arr)
     {
         if(arr.length == 0) return null;
-        Node head = new Node(arr[0]);
-        Node mover = head;
+        ListNode head = new ListNode(arr[0]);
+        ListNode mover = head;
         for(int i = 1; i<arr.length; i++)
         {
-            Node temp = new Node(arr[i]);
+            ListNode temp = new ListNode(arr[i]);
             mover.next = temp;
             mover = temp;
         }
         return head;
     }
-    public static void print(Node head)
+    public static void print(ListNode head)
     {
         System.out.println("Linked list");
         while(head!=null)
