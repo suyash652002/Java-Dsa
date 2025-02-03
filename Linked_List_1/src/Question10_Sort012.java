@@ -2,23 +2,23 @@ public class Question10_Sort012 {
     public static void main(String[] args) {
 //        1->2->2->1->2->0->2->2
         int[] arr = {2, 0};
-        ListNode head = convert(arr);
+        Node head = convert(arr);
         print(head);
         System.out.println();
-        ListNode ans = segregate(head);
+        Node ans = segregate(head);
         print(ans);
     }
-    public static ListNode segregate(ListNode head) {
+    public static Node segregate(Node head) {
         if (head == null || head.next == null)
             return head;
 
-        ListNode zeroD = new ListNode(0);
-        ListNode oneD = new ListNode(0);
-        ListNode twoD = new ListNode(0);
+        Node zeroD = new Node(0);
+        Node oneD = new Node(0);
+        Node twoD = new Node(0);
 
-        ListNode zero = zeroD, one = oneD, two = twoD;
+        Node zero = zeroD, one = oneD, two = twoD;
 
-        ListNode curr = head;
+        Node curr = head;
         while (curr != null) {
             if (curr.data == 0) {
                 zero.next = curr;
@@ -43,20 +43,20 @@ public class Question10_Sort012 {
         head = zeroD.next;
         return head;
     }
-    public static ListNode convert(int[] arr)
+    public static Node convert(int[] arr)
     {
         if(arr.length == 0) return null;
-        ListNode head = new ListNode(arr[0]);
-        ListNode mover = head;
+        Node head = new Node(arr[0]);
+        Node mover = head;
         for(int i = 1; i<arr.length; i++)
         {
-            ListNode temp = new ListNode(arr[i]);
+            Node temp = new Node(arr[i]);
             mover.next = temp;
             mover = temp;
         }
         return head;
     }
-    public static void print(ListNode head)
+    public static void print(Node head)
     {
         System.out.println("Linked list");
         while(head!=null)

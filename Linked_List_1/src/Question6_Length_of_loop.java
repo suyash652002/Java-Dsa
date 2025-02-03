@@ -1,19 +1,19 @@
 public class Question6_Length_of_loop {
     public static void main(String[] args) {
-        ListNode node5 = new ListNode(5, null);
-        ListNode node4 = new ListNode(4, node5);
-        ListNode node3 = new ListNode(3, node4);
-        ListNode node2 = new ListNode(2, node3);
-        ListNode head = new ListNode(1, node2);
+        Node node5 = new Node(5, null);
+        Node node4 = new Node(4, node5);
+        Node node3 = new Node(3, node4);
+        Node node2 = new Node(2, node3);
+        Node head = new Node(1, node2);
 
         node5.next = node2;
 //        print(head);
         System.out.println("Length of Loop is : " + lengthOfLoop(head));
     }
-    public static int lengthOfLoop(ListNode head)
+    public static int lengthOfLoop(Node head)
     {
-        ListNode fast = head;
-        ListNode slow = head;
+        Node fast = head;
+        Node slow = head;
         while(fast!=null && fast.next != null)
         {
             slow = slow.next;
@@ -25,7 +25,7 @@ public class Question6_Length_of_loop {
         }
         return -1;
     }
-    public static int search(ListNode slow, ListNode fast)
+    public static int search(Node slow, Node fast)
     {
         int count = 0;
         fast = fast.next;
@@ -36,7 +36,7 @@ public class Question6_Length_of_loop {
         }
         return count;
     }
-    public static void print(ListNode head)
+    public static void print(Node head)
     {
         System.out.println("Linked list");
         while(head!=null)

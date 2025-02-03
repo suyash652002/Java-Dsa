@@ -1,18 +1,18 @@
 public class Question4_Detect_loop {
     public static void main(String[] args) {
-        ListNode head = new ListNode(3, null);
-        ListNode node4 = new ListNode(4, null);
-        ListNode node3 = new ListNode(0, node4);
-        ListNode node2 = new ListNode(2, node3);
+        Node head = new Node(3, null);
+        Node node4 = new Node(4, null);
+        Node node3 = new Node(0, node4);
+        Node node2 = new Node(2, node3);
         head.next = node2;
         node4.next = node2;
 //        print(head);
         System.out.println(detectCycle(head));
     }
-    public static boolean detectCycle(ListNode head)
+    public static boolean detectCycle(Node head)
     {
-        ListNode fast = head;
-        ListNode slow = head;
+        Node fast = head;
+        Node slow = head;
         while(fast!=null && fast.next != null)
         {
             slow = slow.next;
@@ -21,7 +21,7 @@ public class Question4_Detect_loop {
         }
         return false;
     }
-    public static void print(ListNode head)
+    public static void print(Node head)
     {
         System.out.println("Linked list");
         while(head!=null)

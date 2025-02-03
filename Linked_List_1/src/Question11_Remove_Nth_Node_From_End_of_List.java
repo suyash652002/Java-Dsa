@@ -2,15 +2,15 @@ public class Question11_Remove_Nth_Node_From_End_of_List {
     public static void main(String[] args) {
         int[] arr = {1,2,3,4,5};
         int n = 4;
-        ListNode head = convert(arr);
+        Node head = convert(arr);
 //        print(head);
-        ListNode ans = removeNthFromEnd(head, n);
+        Node ans = removeNthFromEnd(head, n);
         print(ans);
     }
-    public static ListNode removeNthFromEnd(ListNode head, int n) {
+    public static Node removeNthFromEnd(Node head, int n) {
         if(head == null) return null;
-        ListNode slow = head;
-        ListNode fast = head;
+        Node slow = head;
+        Node fast = head;
         for(int i = 0; i<n; i++)
         {
             fast = fast.next;
@@ -24,20 +24,20 @@ public class Question11_Remove_Nth_Node_From_End_of_List {
         slow.next = slow.next.next;
         return head;
     }
-    public static ListNode convert(int[] arr)
+    public static Node convert(int[] arr)
     {
         if(arr.length == 0) return null;
-        ListNode head = new ListNode(arr[0]);
-        ListNode mover = head;
+        Node head = new Node(arr[0]);
+        Node mover = head;
         for(int i = 1; i<arr.length; i++)
         {
-            ListNode temp = new ListNode(arr[i]);
+            Node temp = new Node(arr[i]);
             mover.next = temp;
             mover = temp;
         }
         return head;
     }
-    public static void print(ListNode head)
+    public static void print(Node head)
     {
         System.out.println("Linked list");
         while(head!=null)

@@ -2,13 +2,13 @@ public class Question18_Rotate_List {
     public static void main(String[] args) {
         int[] arr = {1, 2, 3, 4, 5, 6};
         int k = 2;
-        ListNode head = convert(arr);
+        Node head = convert(arr);
 //        System.out.println(rotateRight(head, 2));
-        ListNode ans = rotateRight(head, 2);
+        Node ans = rotateRight(head, 2);
         print(ans);
     }
 
-    public static ListNode findTail(ListNode temp, int k)
+    public static Node findTail(Node temp, int k)
     {
         for(int i = 1; i<k; i++)
         {
@@ -16,9 +16,9 @@ public class Question18_Rotate_List {
         }
         return temp;
     }
-    public static ListNode rotateRight(ListNode head, int k)
+    public static Node rotateRight(Node head, int k)
     {
-        ListNode tail = head;
+        Node tail = head;
         int length = 1;
         while(tail.next != null)
         {
@@ -27,26 +27,26 @@ public class Question18_Rotate_List {
         }
         if(k%length == 0) return head;
         k = k% length;
-        ListNode temp = head;
-        ListNode actualTail = findTail(temp, length - k);
+        Node temp = head;
+        Node actualTail = findTail(temp, length - k);
         tail.next = head;
         head = actualTail.next;
         actualTail.next = null;
         return head;
     }
-    public static ListNode convert(int[] arr)
+    public static Node convert(int[] arr)
     {
-        ListNode head = new ListNode(arr[0]);
-        ListNode mover = head;
+        Node head = new Node(arr[0]);
+        Node mover = head;
         for(int i = 1; i<arr.length; i++)
         {
-            ListNode temp = new ListNode(arr[i]);
+            Node temp = new Node(arr[i]);
             mover.next = temp;
             mover = temp;
         }
         return head;
     }
-    public static void print(ListNode head)
+    public static void print(Node head)
     {
         System.out.println("Linked list");
         while(head!=null)
